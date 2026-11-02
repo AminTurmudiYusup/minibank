@@ -26,6 +26,8 @@ Modul aplikasi meliputi:
 - Customer
 - Account
 - Transaction
+- registrasi
+
 
 Setiap modul memiliki tanggung jawab bisnis masing-masing sehingga lebih mudah dikembangkan dan dipelihara.
 
