@@ -1,6 +1,6 @@
 # Mini Bank Application
 
-Mini Bank merupakan aplikasi simulasi perbankan sederhana yang dibangun menggunakan **Java 21, Spring Boot 3, dan PostgreSQL**.
+Mini Bank merupakan aplikasi simulasi perbankan sederhana yang dibangun menggunakan **Java 21, Spring Boot 4, dan PostgreSQL**.
 
 ## Fitur Utama
 
