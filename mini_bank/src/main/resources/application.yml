@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:minibank}
+    username: ${DB_USERNAME:minibank}
+    password: ${DB_PASSWORD:change_this_password}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: 8081
+
+# Fix 1: Kept at root level if mapping to your own custom Java prefix class
+security:
+  jwt:
+    secret: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+
+# Fix 2: Moved completely to the left (root level)
+logging:
+  level:
+    root: DEBUG
+    org.apache.coyote.http11.Http11Processor: INFO   # Adds this line to hide the noise
