@@ -76,8 +76,84 @@ Aplikasi dapat diakses melalui:
 {{baseUrl}}/api/transfers
 ```
 
+## Sample Registration Request
 
-Untuk menghentikan aplikasi:
+**Endpoint:** `POST /api/auth/register`
+
+**Content-Type:** `application/json`
+
+### Customer 1
+
+```json
+{
+  "username": "amin",
+  "email": "amin@test.com",
+  "password": "Password123!",
+  "fullName": "Amin Turmudzi",
+  "phone": "081234567890",
+  "address": "Jakarta"
+}
+```
+
+### Customer 2
+
+```json
+{
+  "username": "budi",
+  "email": "budi@test.com",
+  "password": "Password123!",
+  "fullName": "Budi Turmudzi",
+  "phone": "081234567891",
+  "address": "Jakarta"
+}
+```
+
+## Sample Login Request
+
+**Endpoint:** `POST /api/auth/login`
+
+**Content-Type:** `application/json`
+
+```json
+{
+  "username": "amin",
+  "password": "Password123!"
+}
+```
+
+
+## Sample Fund Transfer Request
+
+**Endpoint:** `POST /api/transfers`
+
+**Headers:**
+
+```http
+Authorization: Bearer <YOUR_ACCESS_TOKEN>
+Content-Type: application/json
+Idempotency-Key: transfer-001
+```
+
+**Request Body:**
+
+```json
+{
+  "toAccountNumber": "{{accountB}}",
+  "amount": 500000,
+  "description": "Transfer to Budi"
+}
+```
+
+**Notes:**
+- `Authorization`: JWT access token obtained from the login endpoint.
+- `Idempotency-Key`: Unique key used to prevent duplicate transactions when the same request is submitted multiple times.
+- `toAccountNumber`: Destination account number.
+- `amount`: Transfer amount in IDR (Rupiah).
+- `description`: Transfer description.
+
+## Stop Application
+
+To stop the application and remove the running containers, execute:
 
 ```bash
 docker compose down
